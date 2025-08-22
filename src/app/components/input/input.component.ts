@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-input',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
-
+  valorItem!: string;
   constructor() { }
 
   ngOnInit(): void { }
+  adicionarItem() {
+    console.log(this.valorItem);
+  }
+
 }
