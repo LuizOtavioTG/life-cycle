@@ -45,19 +45,20 @@ export class ListaDeCompraService {
     }
     return item
   }
-  adicionarItemNaLista(nomeDoItem: string){
+    adicionarItemNaLista(nomeDoItem: string) {
     const item = this.criarItem(nomeDoItem);
+
     this.listaDeCompra.push(item);
-    this.listaDeCompra = [...this.listaDeCompra, item];
   }
-  editarItemDaLista(itemAntigo: Item, nomeEditadoDoItem: string){
-    const itemEditado : Item = {
-        id: itemAntigo.id,
-        nome: nomeEditadoDoItem,
-        data: itemAntigo.data,
-        comprado: itemAntigo.comprado
+
+  editarItemDaLista(itemAntigo: Item, nomeEditadoDoItem: string) {
+    const index = this.listaDeCompra.findIndex(item => item.id === itemAntigo.id);
+    if (index !== -1) {
+ 
+      const itemEditado: Item = { ...this.listaDeCompra[index], nome: nomeEditadoDoItem };
+      this.listaDeCompra[index] = itemEditado;
+
+
     }
-    const id = itemAntigo.id;
-    this.listaDeCompra.splice(Number(id)-1, 1, itemEditado);
-}
+  }
 }

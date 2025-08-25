@@ -12,10 +12,12 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() itemQueVaiSerEditado!: Item;
   editando = false;
   textoBtn = 'Salvar item';
+
   valorItem!: string;
   constructor(private listaService: ListaDeCompraService) { }
 
   ngOnInit(): void { }
+  
   adicionarItem() {
     this.listaService.adicionarItemNaLista(this.valorItem);
     this.limparCampo();
